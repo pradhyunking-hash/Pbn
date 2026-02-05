@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PBN Roleplay | Official Website</title>
+
+<style>
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #02040a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* ================= CINEMATIC BACKGROUND ================= */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,160,255,0.35), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,0,120,0.25), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(0,255,200,0.25), transparent 50%);
+  animation: cosmicMove 25s linear infinite;
+}
+
+body::after {
+  background:
+    linear-gradient(120deg, rgba(0,255,255,0.08), rgba(255,0,255,0.08), rgba(0,255,150,0.08));
+  mix-blend-mode: overlay;
+  animation: cosmicMoveReverse 40s linear infinite;
+}
+
+@keyframes cosmicMove {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(10%, -10%) rotate(180deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
+}
+
+@keyframes cosmicMoveReverse {
+  0% { transform: translate(0,0) rotate(360deg); }
+  100% { transform: translate(-10%, 10%) rotate(0deg); }
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px rgba(0,200,255,0.7));
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #00eaff, #ff4fd8, #00ffa6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowText 6s linear infinite;
+}
+
+@keyframes glowText {
+  0% { filter: drop-shadow(0 0 10px #00eaff); }
+  50% { filter: drop-shadow(0 0 25px #ff4fd8); }
+  100% { filter: drop-shadow(0 0 10px #00ffa6); }
+}
+
+.hero p {
+  max-width: 800px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-top: 15px;
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 100px 8%;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+  background: linear-gradient(90deg, #00eaff, #ff4fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= CARDS ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 25px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(0,200,255,0.15);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 60px rgba(255,0,200,0.35);
+}
+
+/* ================= RULES ================= */
+.rules li {
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #00eaff, #ff4fd8);
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(0,200,255,0.6);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  padding: 40px;
+  text-align: center;
+  opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <img src="EED8AF2D-0797-4FB0-B6BF-143AB62EF9C9.png" alt="PBN Logo">
+  <h1>PBN ROLEPLAY</h1>
+  <p>Next-Generation ER:LC Roleplay • Cinematic • Professional • High-Tech Experience</p>
+  <a class="btn" href="https://discord.gg/eYe6Q66bG">Join Our Discord</a>
+</div>
+
+<!-- ================= DEPARTMENTS ================= -->
+<section>
+  <h2 class="section-title">Departments</h2>
+  <div class="grid">
+    <div class="card">SWAT</div>
+    <div class="card">State Police</div>
+    <div class="card">Secret Service</div>
+    <div class="card">FBI</div>
+    <div class="card">Sheriff Office</div>
+    <div class="card">Highway Patrol</div>
+    <div class="card">Military Police</div>
+    <div class="card">Fire & Rescue</div>
+    <div class="card">EMS</div>
+    <div class="card">Detective Bureau</div>
+    <div class="card">Special Operations</div>
+    <div class="card">Intelligence Unit</div>
+  </div>
+</section>
+
+<!-- ================= SHOP ================= -->
+<section>
+  <h2 class="section-title">Shop</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>VIP – 120 Robux</h3>
+      <p>• Priority Queue<br>• VIP Tag<br>• Extra Vehicles<br>• Special Commands</p>
+    </div>
+    <div class="card">
+      <h3>Custom Role – 140 Robux</h3>
+      <p>• Custom Name<br>• Special Color<br>• Exclusive Role<br>• Recognition</p>
+    </div>
+    <div class="card">
+      <h3>Custom Car – 130 Robux</h3>
+      <p>• Custom Livery<br>• Custom Name<br>• Approved Model<br>• Personal Ownership</p>
+    </div>
+    <div class="card">
+      <h3>Booster</h3>
+      <p>• Discord Perks<br>• Special Role<br>• Extra Access<br>• Recognition</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RULES ================= -->
+<section>
+  <h2 class="section-title">Rules</h2>
+  <ul class="rules">
+    <li>Fail-RP, RDM, and VDM are strictly prohibited.</li>
+    <li>Respect all staff members and players.</li>
+    <li>No exploiting, cheating, or bypassing systems.</li>
+    <li>Follow ER:LC and server roleplay standards at all times.</li>
+  </ul>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2026 PBN Roleplay • All Rights Reserved
+</footer>
+
+</body>
+  </html>
