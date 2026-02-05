@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palm Beach Network • PBN</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%}
+
+/* ROOT COLORS */
+:root{
+  --blue:#4f7cff;
+  --purple:#8b5cff;
+  --cyan:#00e5ff;
+  --bg:#040612;
+  --text:#eaf0ff;
+  --muted:#aab3ff;
+}
+
+/* BODY */
+body{
+  font-family:Inter,system-ui;
+  color:var(--text);
+  overflow-x:hidden;
+  background:#040612;
+}
+
+/* === ANIMATED BACKGROUND === */
+#bg{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(79,124,255,.35), transparent 60%),
+    radial-gradient(1000px 700px at 90% 20%, rgba(139,92,255,.35), transparent 60%),
+    radial-gradient(900px 900px at 50% 90%, rgba(0,229,255,.25), transparent 60%),
+    linear-gradient(180deg,#030414,#060a2a,#030414);
+  animation:bgMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+  0%{filter:hue-rotate(0deg)}
+  100%{filter:hue-rotate(25deg)}
+}
+
+/* PARTICLES */
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-2;
+}
+
+/* WRAPPER */
+.wrapper{
+  min-height:100vh;
+  width:100%;
+  padding:40px 5vw 120px;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.logo{
+  width:60px;
+  height:60px;
+  border-radius:16px;
+  background:
+    linear-gradient(135deg,var(--blue),var(--purple));
+  box-shadow:0 0 40px rgba(139,92,255,.6);
+}
+
+.brand h1{
+  font-family:Orbitron;
+  font-size:18px;
+  letter-spacing:1px;
+}
+
+.brand span{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* NAV */
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  padding:12px 18px;
+  border-radius:16px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.15);
+  transition:.25s;
+}
+
+nav a:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 25px rgba(139,92,255,.4);
+}
+
+/* HERO */
+.hero{
+  margin-top:80px;
+  padding:60px;
+  border-radius:32px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+
+.hero h2{
+  font-family:Orbitron;
+  font-size:clamp(36px,5vw,64px);
+  background:linear-gradient(90deg,var(--blue),var(--purple),var(--cyan));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  margin-top:18px;
+  max-width:800px;
+  font-size:18px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* BUTTONS */
+.actions{
+  margin-top:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+}
+
+.btn{
+  padding:16px 22px;
+  border-radius:18px;
+  font-weight:800;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  box-shadow:0 0 40px rgba(79,124,255,.45);
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* SECTION */
+.section{
+  margin-top:100px;
+}
+
+.section h3{
+  font-family:Orbitron;
+  font-size:28px;
+  margin-bottom:30px;
+  color:#cfd6ff;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+.card{
+  padding:26px;
+  border-radius:26px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.15);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 60px rgba(139,92,255,.35);
+}
+
+.card h4{
+  font-size:18px;
+  margin-bottom:10px;
+  color:#e8ecff;
+}
+
+.card p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+  margin-top:120px;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero{padding:40px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="bg"></div>
+<canvas id="particles"></canvas>
+
+<div class="wrapper">
+
+<header>
+  <div class="brand">
+    <div class="logo"></div>
+    <div>
+      <h1>Palm Beach Network</h1>
+      <span>PBN • Roblox ER:LC</span>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#">Departments</a>
+    <a href="#">Rules</a>
+    <a href="https://discord.gg/eYe6Q66bG" target="_blank">Discord</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Cinematic Roleplay. Zero Limits.</h2>
+  <p>
+    Palm Beach Network delivers a next-generation ER:LC experience.
+    High realism, professional staff, cinematic sessions, and an aggressive
+    luxury atmosphere built for serious roleplayers.
+  </p>
+
+  <div class="actions">
+    <a class="btn" href="https://www.roblox.com/" target="_blank">Join Roblox</a>
+    <a class="btn" href="https://discord.gg/eYe6Q66bG" target="_blank">Join Discord</a>
+  </div>
+</section>
+
+<section class="section">
+  <h3>Departments</h3>
+  <div class="grid">
+    <div class="card"><h4>SWAT</h4><p>High-risk tactical operations.</p></div>
+    <div class="card"><h4>Secret Service</h4><p>VIP & government protection.</p></div>
+    <div class="card"><h4>State Police</h4><p>Highway patrol & investigations.</p></div>
+    <div class="card"><h4>Fire & EMS</h4><p>Emergency & medical RP.</p></div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Palm Beach Network • Built for PBN
+</footer>
+
+</div>
+
+<script>
+const c=document.getElementById("particles"),x=c.getContext("2d");
+let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}
+addEventListener("resize",r);r();
+let p=[...Array(120)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3}));
+(function a(){
+x.clearRect(0,0,w,h);
+p.forEach(o=>{
+o.x+=o.vx;o.y+=o.vy;
+if(o.x<0)o.x=w;if(o.x>w)o.x=0;
+if(o.y<0)o.y=h;if(o.y>h)o.y=0;
+x.fillStyle="rgba(140,160,255,.6)";
+x.beginPath();x.arc(o.x,o.y,1.5,0,7);x.fill();
+});
+requestAnimationFrame(a);
+})();
+</script>
+
+</body>
+</html>
