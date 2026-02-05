@@ -23,8 +23,43 @@ html, body {
 }
 
 /* ================= CINEMATIC BACKGROUND ================= */
-body::before,
+body::before {
+  content: "";
+  position: fixed;
+  inset: -40%;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,180,255,0.45), transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(255,0,140,0.35), transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(0,255,180,0.35), transparent 50%),
+    linear-gradient(120deg, #020b1f, #02040a 60%, #040d1f);
+  animation: bgMove 22s ease-in-out infinite alternate;
+}
+
 body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(
+      120deg,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 80px
+    );
+  mix-blend-mode: overlay;
+}
+
+@keyframes bgMove {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.15) translate(-6%, -4%);
+  }
+}
   content: "";
   position: fixed;
   inset: -50%;
